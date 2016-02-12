@@ -1,0 +1,21 @@
+---
+# fetch jsnshrmn.lastpass-cli from github
+- src: https://github.com/OULibraries/ansible-role-lastpass-cli
+  version: master
+  name: jsnshrmn.d7-lastpass
+# fetch jsnshrmn.d7-lastpass from github
+- src: https://github.com/OULibraries/ansible-role-d7-lastpass
+  version: master
+  name: jsnshrmn.lastpass-cli
+# fetch jsnshrmn.ec2-init from github
+- src: https://github.com/OULibraries/ansible-role-ec2-init
+  version: master
+  name: jsnshrmn.ec2-init
+# fetch jsnshrmn.centos7 from github
+- src: https://github.com/OULibraries/ansible-role-centos7
+  version: master
+  name: jsnshrmn.centos7
+# fetch jsnshrmn.d7 from github
+- src: https://github.com/OULibraries/ansible-role-d7
+  version: master
+  name: jsnshrmn.d7

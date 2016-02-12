@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  roles:
+    - jsnshrmn.ec2-init
+    - jsnshrmn.lastpass-cli
+    - jsnshrmn.d7-lastpass
+- hosts: tag_Workload_Unprovisioned
+  sudo: yes
+#  vars_files:
+#    - my-vars.yml
+  roles:
+    - jsnshrmn.centos7
+    - jsnshrmn.d7
