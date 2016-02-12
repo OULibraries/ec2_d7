@@ -2,11 +2,11 @@
 # fetch jsnshrmn.lastpass-cli from github
 - src: https://github.com/OULibraries/ansible-role-lastpass-cli
   version: master
-  name: jsnshrmn.d7-lastpass
+  name: jsnshrmn.lastpass-cli
 # fetch jsnshrmn.d7-lastpass from github
 - src: https://github.com/OULibraries/ansible-role-d7-lastpass
   version: master
-  name: jsnshrmn.lastpass-cli
+  name: jsnshrmn.d7-lastpass
 # fetch jsnshrmn.ec2-init from github
 - src: https://github.com/OULibraries/ansible-role-ec2-init
   version: master
