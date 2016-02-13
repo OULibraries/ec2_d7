@@ -1,13 +1,17 @@
 ---
 - hosts: localhost
+  vars:
+    - ec2_tag_App: "d7"
+    - ec2_tag_Unit: "Default"
+#    - ec2_tag_Workload: "Dev"
+    - ec2_tag_Name: "lib-amz-default-version_branch"
   roles:
     - jsnshrmn.ec2-init
     - jsnshrmn.lastpass-cli
     - jsnshrmn.d7-lastpass
-- hosts: tag_Workload_Unprovisioned
+- hosts: unprovisioned
+  remote_user: libacct
   sudo: yes
-#  vars_files:
-#    - my-vars.yml
   roles:
     - jsnshrmn.centos7
     - jsnshrmn.d7
