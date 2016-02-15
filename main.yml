@@ -1,17 +1,29 @@
 ---
+## Bootstrap the box on the AWS layer
 - hosts: localhost
   vars:
     - ec2_tag_App: "d7"
     - ec2_tag_Unit: "Default"
-#    - ec2_tag_Workload: "Dev"
+    - ec2_tag_Workload: "Development"
     - ec2_tag_Name: "lib-amz-default-version_branch"
   roles:
     - jsnshrmn.ec2-init
     - jsnshrmn.lastpass-cli
     - jsnshrmn.d7-lastpass
+## Do provisioning inside the box
 - hosts: unprovisioned
   remote_user: libacct
   sudo: yes
   roles:
     - jsnshrmn.centos7
     - jsnshrmn.d7
+## Do post-provisioning tasks on the AWS layer
+- hosts: localhost
+  tasks:
+    - name: Tag instance after provisioning
+      ec2_tag:
+        region: "{{ hostvars['localhost']['region'] }}"
+        resource: "{{ hostvars['localhost']['instance_id'] }}"
+        state: present
+        tags:
+          Workload: "{{ hostvars['localhost']['server_tag_workload'] }}"
