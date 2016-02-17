@@ -7,16 +7,16 @@
     - ec2_tag_Workload: "Development"
     - ec2_tag_Name: "lib-amz-default-version_branch"
   roles:
-    - jsnshrmn.ec2-init
-    - jsnshrmn.lastpass-cli
-    - jsnshrmn.d7-lastpass
+    - OULibraries.ec2-init
+    - OULibraries.lastpass-cli
+    - OULibraries.d7-lastpass
 ## Do provisioning inside the box
 - hosts: unprovisioned
   remote_user: libacct
   sudo: yes
   roles:
-    - jsnshrmn.centos7
-    - jsnshrmn.d7
+    - OULibraries.centos7
+    - OULibraries.d7
 ## Do post-provisioning tasks on the AWS layer
 - hosts: localhost
   tasks:
