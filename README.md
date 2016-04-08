@@ -14,7 +14,9 @@
 ```
 sudo ansible-galaxy install -r requirements.yml --force
 ```
-* Configure the vars section in main.yml
+* Copy `my-vars.default.yml` to `my-vars.yml`
+* Configure the variables in my-vars.yml
+
 
 ## Usage
 ```

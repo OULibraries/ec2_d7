@@ -1,13 +1,8 @@
 ---
 ## Bootstrap the box on the AWS layer
 - hosts: localhost
-  vars:
-    - ec2_tag_App: "d7"
-    - ec2_tag_Unit: "Default"
-    - ec2_tag_Workload: "Development"
-    - ec2_tag_Name: "lib-amz-default-version_branch"
-    - ec2_vpc_subnet_id: "subnet-invalid"
-    - ec2_key_name: "your-keyname"
+  vars_files:
+    - my-vars.yml
   roles:
     - OULibraries.ec2-init
     - OULibraries.lastpass-cli
