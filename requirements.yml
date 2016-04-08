@@ -9,7 +9,7 @@
   name: OULibraries.d7-lastpass
 # fetch OULibraries.ec2-init from github
 - src: https://github.com/OULibraries/ansible-role-ec2-init
-  version: master
+  version: v2016-04-08.0
   name: OULibraries.ec2-init
 # fetch OULibraries.centos7 from github
 - src: https://github.com/OULibraries/ansible-role-centos7
@@ -17,5 +17,5 @@
   name: OULibraries.centos7
 # fetch OULibraries.d7 from github
 - src: https://github.com/OULibraries/ansible-role-d7
-  version: master
+  version: v2016-04-06.0
   name: OULibraries.d7
