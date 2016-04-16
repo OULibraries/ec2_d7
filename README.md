@@ -20,5 +20,5 @@ sudo ansible-galaxy install -r requirements.yml --force
 
 ## Usage
 ```
-ansible-playbook main.yml -K
+ansible-playbook main.yml
 ```
