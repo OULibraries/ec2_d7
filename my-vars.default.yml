@@ -3,6 +3,13 @@ ec2_tag_App: "d7"
 ec2_tag_Unit: "Default"
 ec2_tag_Workload: "Development"
 ec2_tag_Name: "lib-amz-default-version_branch"
-ec2_instance_default_user_name: "centos"
 ec2_vpc_subnet_id: "subnet-id"
-ec2_key_name: "your-keyname"
+
+users:
+  - name: 'centos'
+    groups: 'centos,wheel'
+    keyname: 'aws-ec2-key-name'
+    pubkey: 'ssh-rsa somepubkey centos@example.org'
+  - name: 'centos1'
+    groups: 'wheel'
+    pubkey: 'ssh-rsa anotherpubkey centos@example.org'
