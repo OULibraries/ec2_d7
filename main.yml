@@ -9,6 +9,8 @@
     - OULibraries.ec2-init
 ## Do provisioning inside the box
 - hosts: unprovisioned
+  vars_files:
+    - my-vars.yml
   remote_user: libacct
   sudo: yes
   roles:
