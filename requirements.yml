@@ -1,21 +1,32 @@
 ---
-# fetch OULibraries.lastpass-cli from github
-- src: https://github.com/OULibraries/ansible-role-lastpass-cli
-  version: master
-  name: OULibraries.lastpass-cli
-# fetch OULibraries.d7-lastpass from github
-- src: https://github.com/OULibraries/ansible-role-d7-lastpass
-  version: master
-  name: OULibraries.d7-lastpass
-# fetch OULibraries.ec2-init from github
 - src: https://github.com/OULibraries/ansible-role-ec2-init
-  version: v2016-04-08.0
+  version: master
   name: OULibraries.ec2-init
-# fetch OULibraries.centos7 from github
+
+- src: https://github.com/OULibraries/ansible-role-lastpass-cli
+  version: v2016-04-08.0
+  name: OULibraries.lastpass-cli
+
+- src: https://github.com/OULibraries/ansible-role-d7-lastpass
+  version: v2016-04-16.0
+  name: OULibraries.d7-lastpass
+
 - src: https://github.com/OULibraries/ansible-role-centos7
   version: master
   name: OULibraries.centos7
-# fetch OULibraries.d7 from github
+  
+- src: https://github.com/OULibraries/ansible-role-users
+  version: master
+  name: OULibraries.users
+  
+- src: https://github.com/OULibraries/ansible-role-apache2
+  version: v2016-04-18.0
+  name: OULibraries.apache2
+  
+- src: https://github.com/OULibraries/ansible-role-mariadb
+  version: v2016-04-08.0
+  name: OULibraries.mariadb
+
 - src: https://github.com/OULibraries/ansible-role-d7
-  version: v2016-04-06.0
+  version: v2016-04-15.0
   name: OULibraries.d7

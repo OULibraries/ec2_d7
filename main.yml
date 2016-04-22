@@ -7,13 +7,38 @@
     - OULibraries.lastpass-cli
     - OULibraries.d7-lastpass
     - OULibraries.ec2-init
+## Add the new box to the broker hosts file
+- hosts: broker.prod.ltp.ec2.internal
+  sudo: yes
+  tasks:
+    - name: Remove any previous hosts entries with this ip
+      lineinfile:
+        dest: /etc/hosts
+        regexp: "^{{ hostvars['localhost']['server_ip'] }}"
+        state: absent
+        backup: yes
+    - name: Remove any previous hosts entries with this name
+      lineinfile:
+        dest: /etc/hosts
+        regexp: "{{ hostvars['localhost']['server_tag_name'] }}"
+        state: absent
+        backup: yes
+    - name: Add new server to hosts entry
+      lineinfile:
+        dest: /etc/hosts
+        line: "{{ hostvars['localhost']['server_ip'] }} {{ hostvars['localhost']['server_tag_name'] }}"
+        state: present
+        backup: yes
 ## Do provisioning inside the box
-- hosts: unprovisioned
+- hosts: ec2.unprovisioned
+  vars_files:
+    - my-vars.yml
   remote_user: libacct
   sudo: yes
   roles:
     - OULibraries.centos7
     - OULibraries.d7
+    - OULibraries.users
 ## Do post-provisioning tasks on the AWS layer
 - hosts: localhost
   tasks:
