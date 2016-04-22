@@ -2,7 +2,7 @@
 
 ## Notes
 
-* Requires Ansible 1.9x
+* Requires Ansible 2x
 * We're using [ec2.py](http://docs.ansible.com/ansible/intro_dynamic_inventory.html#example-aws-ec2-external-inventory-script) for dynamic inventory
 * Requires boto + aws credentials
 
@@ -20,5 +20,5 @@ sudo ansible-galaxy install -r requirements.yml --force
 
 ## Usage
 ```
-ansible-playbook main.yml -K
+ansible-playbook main.yml
 ```
