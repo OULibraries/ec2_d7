@@ -12,21 +12,21 @@
   name: OULibraries.d7-lastpass
 
 - src: https://github.com/OULibraries/ansible-role-centos7
-  version: master
+  version: v2016-04-25.1
   name: OULibraries.centos7
-  
+
 - src: https://github.com/OULibraries/ansible-role-users
-  version: master
+  version: v2016-04-25.1
   name: OULibraries.users
-  
+
 - src: https://github.com/OULibraries/ansible-role-apache2
-  version: v2016-04-18.0
+  version: v2016-04-25.0
   name: OULibraries.apache2
-  
+
 - src: https://github.com/OULibraries/ansible-role-mariadb
   version: v2016-04-08.0
   name: OULibraries.mariadb
 
 - src: https://github.com/OULibraries/ansible-role-d7
-  version: v2016-04-15.0
+  version: v2016-04-25.0
   name: OULibraries.d7
