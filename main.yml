@@ -33,7 +33,6 @@
 - hosts: ec2.unprovisioned
   vars_files:
     - my-vars.yml
-  remote_user: libacct
   sudo: yes
   roles:
     - OULibraries.centos7
