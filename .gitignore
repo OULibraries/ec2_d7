@@ -1,2 +1,8 @@
 # Ignore local variables
 my-vars.yml
+
+# Ignore swap files
+*.swp
+
+#Ignore ansible retry files
+*.retry
