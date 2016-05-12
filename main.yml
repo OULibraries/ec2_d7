@@ -8,27 +8,32 @@
     - OULibraries.d7-lastpass
     - OULibraries.ec2-init
 ## Add the new box to the broker hosts file
-- hosts: broker.prod.ltp.ec2.internal
+- hosts: "{{ my_broker }}"
+  vars_files:
+    - my-vars.yml
   sudo: yes
   tasks:
     - name: Remove any previous hosts entries with this ip
       lineinfile:
         dest: /etc/hosts
-        regexp: "^{{ hostvars['localhost']['server_ip'] }}"
+        regexp: "^{{ item.private_ip_address }}"
         state: absent
         backup: yes
+      with_items: "{{ hostvars['localhost']['ec2_post_info']['instances'] }}"
     - name: Remove any previous hosts entries with this name
       lineinfile:
         dest: /etc/hosts
-        regexp: "{{ hostvars['localhost']['server_tag_name'] }}"
+        regexp: "{{ item.tags.Name }}"
         state: absent
         backup: yes
+      with_items: "{{ hostvars['localhost']['ec2_post_info']['instances'] }}"
     - name: Add new server to hosts entry
       lineinfile:
         dest: /etc/hosts
-        line: "{{ hostvars['localhost']['server_ip'] }} {{ hostvars['localhost']['server_tag_name'] }}"
+        line: "{{ item.private_ip_address }} {{ item.tags.Name }}"
         state: present
         backup: yes
+      with_items: "{{ hostvars['localhost']['ec2_post_info']['instances'] }}"
 ## Do provisioning inside the box
 - hosts: ec2.unprovisioned
   vars_files:
@@ -43,8 +48,9 @@
   tasks:
     - name: Tag instance after provisioning
       ec2_tag:
-        region: "{{ hostvars['localhost']['region'] }}"
-        resource: "{{ hostvars['localhost']['instance_id'] }}"
+        region: "{{ item.region }}"
+        resource: "{{ item.id }}"
         state: present
         tags:
-          Workload: "{{ hostvars['localhost']['server_tag_workload'] }}"
+          State: Provisioned
+      with_items: "{{ hostvars['localhost']['ec2_post_info']['instances'] }}"
