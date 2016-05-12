@@ -1,6 +1,6 @@
 ---
 - src: https://github.com/OULibraries/ansible-role-ec2-init
-  version: v2016-05-02.0
+  version: v2016-05-12.0
   name: OULibraries.ec2-init
 
 - src: https://github.com/OULibraries/ansible-role-lastpass-cli
@@ -16,7 +16,7 @@
   name: OULibraries.centos7
   
 - src: https://github.com/OULibraries/ansible-role-users
-  version: v2016-05-03.0
+  version: v2016-05-11.2
   name: OULibraries.users
   
 - src: https://github.com/OULibraries/ansible-role-apache2
